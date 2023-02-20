@@ -7,3 +7,49 @@
 - PostgreSQL is also pronounced as Post-gress-Q-L, which is developed by the PostgreSQL Global Development Group (a worldwide team of volunteers), any organization or other private entity does not control it.
 - PostgreSQL will offer us the facility to add custom functions with the help of various programming languages such as Java, C, and C++, etc. In this, we can describe our functional languages, index types and data types, and we can also create a custom plugin to increase the reliability of our needs.
 - The PostgreSQL follow the transaction along with the ACID (Atomicity, Consistency, Isolation, and Durability) properties.
+
+## 2) Feature of PostgreSQL
+- Free to download
+- Compatible on several `Operation Systems`
+- Compatible with various `Programming Languages`
+- It supports `Data Integrity` which includes the following:
+    - Primary Keys
+    - UNIQUE, NOT NULL
+    - Foreign Keys
+    - Explicit Locks, Advisory Locks
+    - Exclusion Constraints
+- It supports various `Features of SQL` which include the followings:
+    - MVCC (Multi-Version Concurrency Control).
+    - Multiple Indexing such as Multicolumn, Partial, B-tree, and expressions.
+    - SQL sub-selects.
+    - Complex SQL queries.
+    - Streaming Replication
+    - Transactions, Nested Transactions through Savepoints.
+    - Just-in-time compilation of expressions
+    - Table partitioning
+- It support various `Data Types` such as:
+    - Structured: Array, Date and Time, UUID (Universally Unique Identifier), Range.
+    - Primitives: String, Integer, Boolean, Numeric.
+    - Customizations: Custom Types, Composite.
+    - Geometry: Polygon, Circle, Line, Point,
+    - Document: XML, JSON/JSONB, Key-value.
+- It is `Highly Extensible` in several phases which are as following:
+    - It supports procedural Languages such as Perl, PL/PGSQL, and Python, etc.
+    - JSON/SQL path expressions
+    - Stored procedures and functions.
+    - For tables, it supports a customizable storage interface.
+    - It is compatible with foreign data wrappers, which connect to further databases with a standard SQL interface.
+- It is safe because it follows several `Security` aspects, which are as follows:
+    - PostgreSQL provides a robust access control system.
+    - It includes several Authentications such as Lightweight Directory Access Protocol(LDAP), Generic Security Service Application Program Interface (GSSAPI), SCRAM-SHA-256, Security Support Provider Interface (SSPI), Certificate, and so on.
+    - PostgreSQL supports Column and row-level security.
+- It is `Highly Reliable` and also provide disaster recovery such as:
+    - Active standbys, PITR (Point in time recovery)
+    - It supports WAL (Write-ahead Logging)
+    - Tablespaces
+    - It supports different types of Replication like Synchronous, Asynchronous, and Logical.
+- It supports `Internationalization`, which means that the international character sets include ICU collations, accent-insensitive and case-sensitive collations, and full-text searches.
+- In PostgreSQL, a table can be set to `inherit` their characteristics from a "parent" table.
+- It is compatible with `ANSI-SQL2008`.
+- PostgreSQL will help us to improve the functionality of `Server-Side programming`.
+- We can install several `extensions` to add additional functionality to PostgreSQL.
