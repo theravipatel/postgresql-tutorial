@@ -70,3 +70,7 @@
     - PostgreSQL speed performance is not as good as compare to further tools.
     - It is a bit slow as compared to MySQL.
     - Sometimes, the installation process is not easy for the learner.
+
+## 4) Download and Install PostgreSQL
+- To download PostgreSQL, Go to the Official website (https://www.postgresql.org/) of PostgreSQL and download setup as per OS.
+- Note that during installation, it will ask for password to set which will required everytime when accessing database.
