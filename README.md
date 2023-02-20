@@ -53,3 +53,20 @@
 - It is compatible with `ANSI-SQL2008`.
 - PostgreSQL will help us to improve the functionality of `Server-Side programming`.
 - We can install several `extensions` to add additional functionality to PostgreSQL.
+
+## 3) Advantages and Disadvantages of PostgreSQL
+- Advantages:
+    - PostgreSQL is easy to use; that why we do not require much training.
+    - It requires low maintenance management for enterprise as well as embedded usage.
+    - PostgreSQL manages data in a relational database as it is very powerful and robust.
+    - We can quickly get the source code of PostgreSQL as it is freely available in an open-source license, and we can immediately implement, change according to our requirements.
+    - It can execute dynamic web-application and website as the LAMP stack option.
+    - PostgreSQL is a highly risk-tolerant database.
+
+- Disadvantages:
+    - PostgreSQL does not support the various open-source applications as compared to MySQL.
+    - In this, creating replication is a bit complex.
+    - It is not maintained by one company.
+    - PostgreSQL speed performance is not as good as compare to further tools.
+    - It is a bit slow as compared to MySQL.
+    - Sometimes, the installation process is not easy for the learner.
