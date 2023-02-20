@@ -198,3 +198,47 @@ psql "sslmode=require host=<db-address> dbname=<db-name> user=<username>"
 ```
 \q
 ```
+
+## 7) Create Database using pgAdmin 4
+- Open pgAdmin 4 -> Servers -> PostgreSQL 15 -> Databases -> right click on it and enter DB info in create database window.
+- Syntax to create a database:
+```
+CREATE DATABASE database_name
+    WITH
+        [OWNER =  role_name]
+        [TEMPLATE = template]
+        [ENCODING = encoding]
+        [LC_COLLATE = collate]
+        [LC_CTYPE = ctype]
+        [TABLESPACE = tablespace_name]
+        [ALLOW_CONNECTIONS = true | false]
+        [CONNECTION LIMIT = max_concurrent_connection]
+        [IS_TEMPLATE = true | false ]
+```
+- Parameters:
+    - `OWNER`: Assign a role that will be the owner of the database. If you omit the OWNER option, the owner of the database is the role that you use to execute the CREATE DATABASE statement.
+    - `TEMPLATE`: Specify the template database from which the new database is created. By default, PostgreSQL uses the template1 database as the template database if you don’t explicitly specify the template database.
+    - `ENCODING`: Determine the character set encoding in the new database.
+    - `LC_COLLATE`: Specify the collation order (LC_COLLATE) that the new database will use. This parameter affects the sort order of string in the queries that contain the ORDER BY clause. It defaults to the LC_COLLATE of the template database.
+    - `LC_CTYPE`: Specify the character classification that the new database will use. It affects the classification of character e.g., lower, upper, and digit. It defaults to the LC_CTYPE of the template database
+    - `TABLESPACE`: Specify the tablespace name for the new database. The default is the tablespace of the template database.
+    - `CONNECTION LIMIT`: Specify the maximum concurrent connections to the new database. The default is -1 i.e., unlimited. This parameter is useful in the shared hosting environments where you can configure the maximum concurrent connections for a particular database.
+    - `ALLOW_CONNECTIONS`: The allow_connections parameter is a boolean value. If it is false, you cannot connect to the database.
+    - `TABLESPACE`: Specify the tablespace that the new database will use. It defaults to the tablespace of the template database.
+    - `IS_TEMPLATE`: If the IS_TEMPLATE is true, any user with the CREATEDB privilege can clone it. If false, only superusers or the database owner can clone it.
+
+- Example:
+```
+CREATE DATABASE blog
+    WITH
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'English_United States.1252'
+    LC_CTYPE = 'English_United States.1252'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1
+    IS_TEMPLATE = False;
+
+COMMENT ON DATABASE blog
+    IS 'Test comment';
+```
