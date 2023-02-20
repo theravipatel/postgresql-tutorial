@@ -86,3 +86,115 @@
     - `Username`: postgres
     - `Password`: [which created during installation]
 - Note that while writing a command in `SQL Shell (PSQL)`, we should make sure that the specified command would end with a `Semicolon (;)`.
+
+## 6) SQL Shell (PSQL) commands list
+- `Connect to a database` - Same host database:
+```
+psql -d <db-name> -U <username> -W
+
+// -W - forces psql to ask for the user password before connecting to the database
+``` 
+- `Connect to a database` - Different host database:
+```
+psql -h <db-address> -d <db-name> -U <username> -W
+```
+- `Connect to a database` - Different host database with SSL mode:
+```
+psql "sslmode=require host=<db-address> dbname=<db-name> user=<username>"
+```
+- `List all databases`: Return with all databases and their name, owner, encoding, access privileges, and other information
+```
+\l
+```
+- `Switch to another database`:
+```
+\c <db-name>
+```
+- `List database tables`: Return with table's schema, name, type, owner 
+```
+\dt
+```
+- `Describe a table`: 
+```
+\d <table-name>
+
+// Returns all the columns, their types, collection, whether they are nullable or not, and their configured default value.
+```
+```
+\d+ <table-name>
+
+// Returns extra information such as storage, compression, stats target, and a description.
+```
+- `List all schemas`: Returns the name of the schemas and their owners.
+```
+\dn
+```
+- `List users and their roles`:
+```
+\du
+```
+- `Retrieve a specific user`:
+```
+\du <username>
+```
+- `List all functions`: Rreturns all functions and schema they belong to, names, result data type, argument data types, type
+```
+\df
+```
+- `List all views`:
+```
+\dv
+```
+- `Execute the last command again`:
+```
+\g
+```
+- `Display command history`:
+```
+\s
+```
+- `Save the command history to a file`:
+```
+\s <file-name>
+```
+- `Save query results to a file`:
+```
+\o <file-name>
+
+// To stop saving results to the file, you need to run the [\o] command again without the file name.
+```
+- `Run commands from a file`: 
+    - Create a txt file with the following content:
+    ```
+    \l
+    \dt
+    \du
+    ```
+    - Now run following command to run above command from file:
+    ```
+    \i <file-name>
+    ```
+- `Know all available psql commands`:
+```
+\?
+```
+- `Get help`:
+```
+\h
+```
+- `Edit command in your own editor`:
+```
+\e
+```
+- `Switch from aligned to non-aligned column output`:
+```
+\a
+```
+- `Switch the output to HTML format`:
+```
+\H
+```
+- `Quit psql`:
+```
+\q
+```
