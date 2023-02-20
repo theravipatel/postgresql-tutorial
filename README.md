@@ -242,3 +242,10 @@ CREATE DATABASE blog
 COMMENT ON DATABASE blog
     IS 'Test comment';
 ```
+
+## 8) Create Database Command Line (SQL Shell)
+- Open the SQL shell and Connect with server by using default configuration (To use default config, just enter without writing anything except for password)
+- Now run following command to create database with default configuration:
+```
+CREATE DATABASE blog;
+```
