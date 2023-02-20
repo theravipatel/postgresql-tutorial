@@ -74,3 +74,15 @@
 ## 4) Download and Install PostgreSQL
 - To download PostgreSQL, Go to the Official website (https://www.postgresql.org/) of PostgreSQL and download setup as per OS.
 - Note that during installation, it will ask for password to set which will required everytime when accessing database.
+
+## 5) Connect to a PostgreSQL Database Server
+- We can connect the PostgreSQL database server using:
+    - `pgAdmin 4`: It is an in-built Graphical User Interface (GUI)
+    - `SQL Shell (PSQL)`: It is a terminal-based front-end application.
+- Default configuration will be:
+    - `Host Server`: localhost
+    - `Database`: postgres
+    - `Port`: 5432
+    - `Username`: postgres
+    - `Password`: [which created during installation]
+- Note that while writing a command in `SQL Shell (PSQL)`, we should make sure that the specified command would end with a `Semicolon (;)`.
