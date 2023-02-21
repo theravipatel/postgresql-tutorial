@@ -349,3 +349,14 @@ WHERE
     schemaname != 'pg_catalog'  
     AND schemaname != 'information_schema';  
 ```
+
+## 15) Describe Table - To find the information on columns of a table
+- Syntax:
+```
+SELECT 
+    * 
+FROM 
+    information_schema.COLUMNS  
+WHERE 
+    TABLE_NAME = 'table_name';
+```
