@@ -337,3 +337,15 @@ CREATE TABLE account_roles (
 ```
 DROP TABLE table_name;
 ```
+
+## 14) Show table - To get the table information of a database
+- Syntax:
+```
+SELECT 
+    * 
+FROM 
+    pg_catalog.pg_tables  
+WHERE
+    schemaname != 'pg_catalog'  
+    AND schemaname != 'information_schema';  
+```
