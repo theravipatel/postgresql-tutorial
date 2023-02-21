@@ -298,3 +298,36 @@ OWNER TO new_owner | current_user | session_user;
     - **polygon** a closed geometric.
     - **inet** an IP4 address.
     - **macaddr** a MAC address.
+
+## 12) Create Table
+- Using pgAdmin 4 -> Select our Database -> Schemas -> Public -> right click and click on create table
+- Using SQL Shell as follow:
+- Syntax:
+```
+CREATE TABLE [IF NOT EXISTS] table_name (
+   column1 datatype(length) column_contraint,
+   column2 datatype(length) column_contraint,
+   column3 datatype(length) column_contraint,
+   table_constraints
+);
+```
+- Constraints: NOT NULL, UNIQUE, PRIMARY KEY, CHECK, FOREIGN KEY
+- Example:
+```
+CREATE TABLE accounts (
+	user_id serial PRIMARY KEY,
+	username VARCHAR ( 50 ) UNIQUE NOT NULL,
+	password VARCHAR ( 50 ) NOT NULL,
+	email VARCHAR ( 255 ) UNIQUE NOT NULL,
+	created_on TIMESTAMP NOT NULL,
+    last_login TIMESTAMP 
+);
+
+CREATE TABLE account_roles (
+  user_id INT NOT NULL,
+  grant_date TIMESTAMP,
+  PRIMARY KEY (user_id),
+  FOREIGN KEY (user_id)
+      REFERENCES accounts (user_id)
+);
+```
