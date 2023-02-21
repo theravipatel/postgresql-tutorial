@@ -278,3 +278,23 @@ RENAME TO new_name;
 ALTER DATABASE database_name
 OWNER TO new_owner | current_user | session_user;
 ```
+
+## 11) Data Types
+- `Boolean`: **boolean** or **bool**. Three possible values: true, false or null
+- `Character`: **CHAR(n)**, **VARCHAR(n)**, and **TEXT**
+- `Numeric`: **SMALLINT**, **INT**, **SERIAL**, **float(n)**, **real** or **float8**, **numeric(p,s)** 
+- `Temporal`: **DATE**, **TIME**, **TIMESTAMP**, **TIMESTAMPTZ**, **INTERVAL**
+- `UUID (Universally Unique Identifiers)`: **UUID**
+- `Array`: Every data type has its own companion array type e.g. **INT[]**, **CHAR[]**, **TEXT[]** etc... 
+- `JSON`: **JSON**, **JSONB**
+- `hstore`:
+    - It used to store key-value pairs in a single value
+    - To use **hstore** data type, We need to enable the hstore extension
+- `Special Type`:
+    - **box** a rectangular box.
+    - **line** – a set of points.
+    - **point** a geometric pair of numbers.
+    - **lseg** a line segment.
+    - **polygon** a closed geometric.
+    - **inet** an IP4 address.
+    - **macaddr** a MAC address.
