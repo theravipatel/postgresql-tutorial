@@ -412,3 +412,11 @@ TRUNCATE TABLE table_name [ RESTART IDENTITY | CONTINUE IDENTITY ] [ CASCADE | R
     - `RESTART IDENTITY`: It repeatedly restarts orders owned by columns of the truncated tables.
     - `CONTINUE IDENTITY`: It does not change the values of orders, and it is the default option.
     - `RESTRICT`: It is also a default option, which can decline to truncate if other tables contain the foreign-key references of tables, which are not mentioned in the command.
+
+
+## 17) Create Temporary Table
+- It presents at the time of a database session and automatically drops at the end of an operation or a session.
+- Syntax:
+```
+CREATE TEMPORARY/TEMP TABLE temp_table_name(column_details); 
+```
