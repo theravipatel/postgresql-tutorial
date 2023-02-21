@@ -331,3 +331,9 @@ CREATE TABLE account_roles (
       REFERENCES accounts (user_id)
 );
 ```
+
+## 13) Drop/Delete Table
+- Syntax:
+```
+DROP TABLE table_name;
+```
