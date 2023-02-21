@@ -360,3 +360,44 @@ FROM
 WHERE 
     TABLE_NAME = 'table_name';
 ```
+
+## 16) Alter table - To change the current table structure
+- To add a new column to a table:	
+```
+ALTER TABLE table_name ADD COLUMN new_column_name TYPE;
+```
+
+- To delete an existing column:
+```
+ALTER TABLE table_name DROP COLUMN column_name;
+```
+
+- To modify the column's default value:	
+```
+ALTER TABLE table_name ALTER COLUMN column_name [SET DEFAULT value | DROP DEFAULT];
+```
+
+- To add a constraint.	
+```
+ALTER TABLE table_name ADD CONSTRAINT constraint_name constraint_definition;
+```
+
+- To rename column:	
+```
+ALTER TABLE table_name RENAME COLUMN column_name TO new_column_name;
+```
+
+- To rename a table:
+```
+ALTER TABLE table_name RENAME TO new_table_name;
+```
+
+- To add the CHECK constraint:	
+```
+ALTER TABLE table_name ADD CHECK expression;
+```
+
+- To change the NOT NULL constraint:	
+```
+ALTER TABLE table_name ALTER COLUMN column_name [SET NOT NULL| DROP NOT NULL];
+```
