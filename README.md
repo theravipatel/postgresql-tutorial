@@ -257,3 +257,24 @@ CREATE DATABASE blog;
 DROP DATABASE [ IF EXISTS] database_name;
 ```
 - Note that using SQL Shell, we need to first select different/default database to delete/drop our database.
+
+## 10) Alter Database
+- Changing attributes of a database
+```
+ALTER DATABASE database_name [ [WITH] option ]
+
+//where option can be:
+    ALLOW_CONNECTIONS allowconn
+    CONNECTION LIMIT connlimit
+    IS_TEMPLATE istemplate
+```
+- Rename the database
+```
+ALTER DATABASE database_name
+RENAME TO new_name;
+```
+- Change the owner of the database
+```
+ALTER DATABASE database_name
+OWNER TO new_owner | current_user | session_user;
+```
