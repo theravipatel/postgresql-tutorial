@@ -420,3 +420,60 @@ TRUNCATE TABLE table_name [ RESTART IDENTITY | CONTINUE IDENTITY ] [ CASCADE | R
 ```
 CREATE TEMPORARY/TEMP TABLE temp_table_name(column_details); 
 ```
+
+## 18) Column Alias - To give a temporary name to the column in the particular query operation.
+- Syntax:
+```
+SELECT column_name AS alias_name FROM table_name; 
+SELECT column_name alias_name FROM table_name;
+SELECT expression AS alias_name FROM table_name;  
+```
+
+## 19) Sequence
+- It is a generator used to create a progressive number that can help to produce a single primary key automatically and synchronize the keys across various rows or tables.
+- We can use `currval()`, `setval()`, and `nextval()` functions to operate on the sequence once the sequence has been generated.
+- `Create Sequence`:
+```
+CREATE SEQUENCE [ IF NOT EXISTS ] sequence_name
+    [ AS { SMALLINT | INT | BIGINT } ]
+    [ INCREMENT [ BY ] increment ]
+    [ MINVALUE minvalue | NO MINVALUE ] 
+    [ MAXVALUE maxvalue | NO MAXVALUE ]
+    [ START [ WITH ] start ] 
+    [ CACHE cache ] 
+    [ [ NO ] CYCLE ]
+    [ OWNED BY { table_name.column_name | NONE } ]
+```
+- Example:
+- Creating a sequence associated with a table column:
+```
+CREATE SEQUENCE order_item_id
+    START 5
+    INCREMENT 5
+    OWNED BY order_details.item_id;
+```
+- Insert data into `order_details` table:
+```
+INSERT INTO 
+    order_details(order_id, item_id, item_text, price)
+VALUES
+    (100, nextval('order_item_id'), 'DVD Player', 100),
+    (100, nextval('order_item_id'), 'Android TV', 550),
+    (100, nextval('order_item_id'), 'Speaker', 250);
+```
+
+- `List all sequences in a database`:
+```
+SELECT
+    relname sequence_name
+FROM 
+    pg_class 
+WHERE 
+    relkind = 'S';
+```
+
+- `Delete sequence`:
+```
+DROP SEQUENCE [ IF EXISTS ] sequence_name [, ...] 
+[ CASCADE | RESTRICT ];
+```
