@@ -249,3 +249,11 @@ COMMENT ON DATABASE blog
 ```
 CREATE DATABASE blog;
 ```
+
+## 9) Delete/Drop Database
+- Using pgAdmin 4, right click on database and click on `Delete/Drop Database`
+- Using SQL Shell, run below command:
+```
+DROP DATABASE [ IF EXISTS] database_name;
+```
+- Note that using SQL Shell, we need to first select different/default database to delete/drop our database.
