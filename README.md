@@ -477,3 +477,39 @@ WHERE
 DROP SEQUENCE [ IF EXISTS ] sequence_name [, ...] 
 [ CASCADE | RESTRICT ];
 ```
+
+## 20) Upsert – insert or update data if the new row already exists in the table
+- Syntax:
+```
+INSERT INTO table_name (column_list) 
+    VALUES (value_list)
+    ON CONFLICT target action;
+```
+- In this statement, the `target` can be one of the following:
+    - `(column_name)` – a column name.
+    - `ON CONSTRAINT constraint_name` – where the constraint name could be the name of the UNIQUE constraint.
+    - `WHERE predicate` – a WHERE clause with a predicate.
+- In this statement, the `action` can be one of the following:
+    - `DO NOTHING` – means do nothing if the row already exists in the table.
+    - `DO UPDATE SET column_1 = value_1, .. [WHERE condition]` – update some fields in the table.
+- Example:
+```
+INSERT INTO customers (name, email)
+    VALUES ('Microsoft','hotline@microsoft.com') 
+    ON CONFLICT ON CONSTRAINT customers_name_key 
+    DO NOTHING;
+
+OR
+
+INSERT INTO customers (name, email)
+    VALUES ('Microsoft','hotline@microsoft.com') 
+    ON CONFLICT (name) 
+    DO NOTHING;
+
+OR
+
+INSERT INTO customers (name, email)
+    VALUES ('Microsoft','hotline@microsoft.com') 
+    ON CONFLICT (name) 
+    DO UPDATE SET email = EXCLUDED.email || ';' || customers.email;
+```
