@@ -401,3 +401,14 @@ ALTER TABLE table_name ADD CHECK expression;
 ```
 ALTER TABLE table_name ALTER COLUMN column_name [SET NOT NULL| DROP NOT NULL];
 ```
+
+## 16) Truncate Table - To delete all records from huge tables quickly
+- Syntax:
+```
+TRUNCATE TABLE table_name [ RESTART IDENTITY | CONTINUE IDENTITY ] [ CASCADE | RESTRICT ] 
+```
+- Options:
+    - `CASCADE`: This option automatically truncates all tables, which contains the foreign-key references to other tables, or any tables added to the collection due to CASCADE.
+    - `RESTART IDENTITY`: It repeatedly restarts orders owned by columns of the truncated tables.
+    - `CONTINUE IDENTITY`: It does not change the values of orders, and it is the default option.
+    - `RESTRICT`: It is also a default option, which can decline to truncate if other tables contain the foreign-key references of tables, which are not mentioned in the command.
