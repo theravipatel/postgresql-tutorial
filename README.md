@@ -513,3 +513,79 @@ INSERT INTO customers (name, email)
     ON CONFLICT (name) 
     DO UPDATE SET email = EXCLUDED.email || ';' || customers.email;
 ```
+
+## 21) Schema - Create/Alter/Drop Schemas, Set Privileges
+- Schema is a namespace that contains named database objects such as:
+    - Views
+    - Indexes
+    - Sequences
+    - Datatypes
+    - Operators
+    - Functions
+    - Tables
+    - Stored Procedures
+    - Other relations
+- Schemas allow us to organize database objects e.g., tables into logical groups to make them more manageable.
+- Schemas enable multiple users to use one database without interfering with each other.
+- A database can have one or more schemas, whereas each schema exists for only one database, and two schemas can contain different objects, which share a similar name.
+- PostgreSQL automatically creates a schema called `public` for every new database. Whatever object you create without specifying the schema name, PostgreSQL will place it into this public schema.
+- So if we create tables without describing any schema names then those tables are automatically placed into the `public schema` by default.
+- Schema operations:
+    - `CREATE SCHEMA`: To create a new schema
+    ```
+    CREATE SCHEMA schema_name;
+    ```
+    - `ALTER SCHEMA`: To rename a schema or change its owner
+    ```
+    ALTER SCHEMA schema_name RENAME TO new_name;
+    ALTER SCHEMA schema_name OWNER TO { new_owner | CURRENT_USER | SESSION_USER};
+    ```
+    - `DROP SCHEMA`: To drop/delete a schema
+    ```
+    DROP SCHEMA [IF EXISTS] schema_name1 [,schema_name2,...] [CASCADE | RESTRICT];
+    ```
+- Example:
+```
+// Create Schema
+CREATE SCHEMA sales;
+
+// Create Table without specifying schema
+CREATE TABLE staff(
+    staff_id SERIAL PRIMARY KEY,
+    first_name VARCHAR(45) NOT NULL,
+    last_name VARCHAR(45) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE
+);
+
+// Create Table with schema
+CREATE TABLE sales.staff(
+    staff_id SERIAL PRIMARY KEY,
+    first_name VARCHAR(45) NOT NULL,
+    last_name VARCHAR(45) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE
+);
+```
+
+- To add the new schema to the search path, you use the following command:
+```
+SET search_path TO your_schema_name, public;
+
+// After this command, new table creation without specifying schema will be 
+// in the 'your_schema_name' instead of 'public' 
+```
+
+- Schemas and Privileges: 
+    - Users can only access objects in the schemas that they own. It means they cannot access any objects in the schemas that do not belong to them.
+    - To allow users to **access/create** the objects in the schema that they do not own, user need to have grant privileges of the schema as follow:
+        - `USAGE`: To access of the objects in the schema
+        ```
+        GRANT USAGE ON SCHEMA schema_name TO user_name;
+        ```
+        - `CREATE`: To create an object in the schema
+        ```
+        GRANT CREATE ON SCHEMA schema_name TO user_name; 
+        ```
+    - We can revoke that privilege if we do not want to access
+    ```
+    REVOKE CREATE ON SCHEMA schema_name FROM user_name;
+    ```
