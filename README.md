@@ -589,3 +589,26 @@ SET search_path TO your_schema_name, public;
     ```
     REVOKE CREATE ON SCHEMA schema_name FROM user_name;
     ```
+
+## 22) Fetch Clause
+- It is used to retrieve a portion of rows returned by a query.
+- It is similar to `LIMIT` clause but the difference is that `LIMIT` is not following a SQL-standard.
+- Syntax:
+```
+OFFSET start { ROW | ROWS }
+FETCH { FIRST | NEXT } [ row_count ] { ROW | ROWS } ONLY
+```
+- `ROW is the synonym for `ROWS`, `FIRST` is the synonym for `NEXT`. So we can use them interchangeably.
+- `start` is an integer that must be zero or positive. By default, it is zero if the `OFFSET clause` is not specified.
+- `row_count` is 1 or greater. By default, the default value of row_count is 1.
+- Example:
+```
+SELECT
+    *
+FROM
+    category
+ORDER BY
+    name
+OFFSET 5 ROWS 
+FETCH FIRST 5 ROW ONLY; 
+```
