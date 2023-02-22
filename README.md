@@ -612,3 +612,33 @@ ORDER BY
 OFFSET 5 ROWS 
 FETCH FIRST 5 ROW ONLY; 
 ```
+
+## 23) Exists Condition
+- It is used to evaluate the existing rows in a `subquery` and returns `true` if the subquery returns several records.
+- It is used with `WHERE clause`.
+- It can combine with the `SELECT`, `INSERT`, `UPDATE`, and `DELETE` queries.
+- Syntax:
+```
+WHERE [NOT] EXISTS (subquery); 
+```
+- Example:
+```
+SELECT 
+    first_name,
+    last_name
+FROM 
+    customer c
+WHERE EXISTS
+    (
+        SELECT 
+            1
+        FROM 
+            payment p
+        WHERE 
+            p.customer_id = c.customer_id AND amount > 11
+    )
+ORDER BY 
+    first_name,
+    last_name;
+```
+- **Note**: Usually, the SELECT command begins with SELECT * rather than a column name or list of expressions. Here, we are using the SELECT 1in its place of SELECT *, which helps us to enhance the query's performance in PostgreSQL.
